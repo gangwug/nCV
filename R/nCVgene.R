@@ -22,19 +22,19 @@
 
 nCVgene <- function(inputD, cgenes) {
   ##set row and column names
-  inputD = as.data.frame(inputD)
-  colnames(inputD)[1] = "geneSym"
+  inputD <- as.data.frame(inputD)
+  colnames(inputD)[1] <- "geneSym"
   if ( nrow(inputD) == length(unique(inputD$geneSym)) ) {
-    rownames(inputD) = inputD$geneSym
+    rownames(inputD) <- inputD$geneSym
     ##get the reformatted data frame
-    ncvD = inputD %>%
+    ncvD <-inputD %>%
       gather(-geneSym, key = "sampleID", value = "expv") %>%
       split(.$geneSym) %>%
       map( function(zD) {
-        x = zD$expv
-        xmean = mean(x)
-        xsd = sd(x)
-        xcv = xsd/xmean
+        x <- zD$expv
+        xmean <- mean(x)
+        xsd <- sd(x)
+        xcv <- xsd/xmean
         return(data.frame( CV = xcv, geneSym = unique(zD$geneSym)) )
       }) %>% bind_rows() %>%
       mutate( nCV = CV / mean(CV) ) %>%
