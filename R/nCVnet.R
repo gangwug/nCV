@@ -21,7 +21,6 @@
 #' testD = nCVnet(inputD = nCVegD, benchD = mClockD)
 #' testD$zstat
 #' @export
-#' @importFrom  mantel.test ape
 
 nCVnet <- function(inputD, benchD, hs = TRUE, nperm = 1000, seedN = 10) {
   ##convert mouse gene symbol to human gene symbol
