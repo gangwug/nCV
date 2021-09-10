@@ -22,7 +22,7 @@
 #' testD$zstat
 #' @export
 #' @importFrom ape mantel.test
-#' @importFrom magrittr "%>%"
+
 
 nCVnet <- function(inputD, benchD, hs = TRUE, nperm = 1000, seedN = 10) {
   ##convert mouse gene symbol to human gene symbol

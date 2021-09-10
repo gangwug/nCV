@@ -15,6 +15,10 @@
 #' ncvD = nCVgene(inputD = nCVegD, cgenes)
 #' ncvD
 #' @export
+#' @importFrom magrittr "%>%"
+#' @importFrom tidyr gather
+#' @importFrom purrr map
+#' @importFrom dplyr bind_rows mutate select filter
 
 nCVgene <- function(inputD, cgenes) {
   ##set row and column names
@@ -24,19 +28,19 @@ nCVgene <- function(inputD, cgenes) {
     rownames(inputD) = inputD$geneSym
     ##get the reformatted data frame
     ncvD = inputD %>%
-      tidyr::gather(-geneSym, key = "sampleID", value = "expv") %>%
+      gather(-geneSym, key = "sampleID", value = "expv") %>%
       split(.$geneSym) %>%
-      purrr::map( function(zD) {
+      map( function(zD) {
         x = zD$expv
         xmean = mean(x)
         xsd = sd(x)
         xcv = xsd/xmean
         return(data.frame( CV = xcv, geneSym = unique(zD$geneSym)) )
       }) %>% bind_rows() %>%
-      dplyr::mutate( nCV = CV / mean(CV) ) %>%
+      mutate( nCV = CV / mean(CV) ) %>%
       #dplyr::select(geneSym, CV, nCV) %>%
-      dplyr::select(geneSym, nCV) %>%
-      dplyr::filter(geneSym %in% cgenes)
+      select(geneSym, nCV) %>%
+      filter(geneSym %in% cgenes)
     return(ncvD)
   }  else  {
     cat("Duplicate gene ids are detected. Please merge rows with duplicate gene ids.\n")
