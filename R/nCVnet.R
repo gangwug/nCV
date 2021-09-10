@@ -22,6 +22,7 @@
 #' testD$zstat
 #' @export
 #' @importFrom ape mantel.test
+#' @importFrom dplyr inner_join
 
 
 nCVnet <- function(inputD, benchD, hs = TRUE, nperm = 1000, seedN = 10) {
@@ -29,16 +30,16 @@ nCVnet <- function(inputD, benchD, hs = TRUE, nperm = 1000, seedN = 10) {
   if (hs) {
     ##since only test the clock genes, it is fine to just use upper case function
     ##for other genes, need to use the homolog gene function for finding the human homolog genes of a mouse gene list
-    benchD[,1] = toupper(benchD[,1])
-    colnames(benchD) = toupper(colnames(benchD))
+    benchD[,1] <- toupper(benchD[,1])
+    colnames(benchD) <- toupper(colnames(benchD))
   }
   ##set row and column names
-  inputD = as.data.frame(inputD)
-  benchD = as.data.frame(benchD)
-  colnames(inputD)[1] = colnames(benchD)[1] = "geneSym"
+  inputD <- as.data.frame(inputD)
+  benchD <- as.data.frame(benchD)
+  colnames(inputD)[1] <- colnames(benchD)[1] <- "geneSym"
   if ( nrow(inputD) == length(unique(inputD$geneSym)) ) {
-    rownames(inputD) = inputD$geneSym
-    rownames(benchD) = benchD$geneSym
+    rownames(inputD) <- inputD$geneSym
+    rownames(benchD) <- benchD$geneSym
     ##get the overlapped genes
     bothID <- inner_join(data.frame(id = benchD$geneSym), data.frame(id = inputD$geneSym), by = "id")
     if ( nrow(bothID) >= 3 )  {
@@ -49,16 +50,16 @@ nCVnet <- function(inputD, benchD, hs = TRUE, nperm = 1000, seedN = 10) {
       simD <- mantel.test(corD, corR, nperm = 1)
       ##start the permutation step
       set.seed(seedN)
-      indexM = NULL
+      indexM <- NULL
       for (np in 1:nperm) {
-        indexM = rbind(indexM, sample(1:nrow(inputD), nrow(bothID)))
+        indexM <- rbind(indexM, sample(1:nrow(inputD), nrow(bothID)))
       }
-      pstat = apply(indexM, 1, function(indexv) {
+      pstat <- apply(indexM, 1, function(indexv) {
         corP <- cor(t(inputD[indexv,-1]), method = "spearman")
         tepD <-  mantel.test(corP, corR, nperm = 1)
         return(tepD$z.stat)
       })
-      pva = sum(pstat > simD$z.stat)/nperm
+      pva <- sum(pstat > simD$z.stat)/nperm
       return(list(zstat = data.frame(tag = "nCVnet",
                                      geneNumber = nrow(bothID),
                                      zstat = simD$z.stat,
