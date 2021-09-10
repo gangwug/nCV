@@ -12,8 +12,8 @@
 #' @param seedN a numeric value. Specify the seeds for random sampling.
 #' @return A list containing the following components:
 #' \tabular{rl}{
-#'              zstat    \tab  the permutation test results of \code{nCVnet}
-#'              npermV   \tab  a vector of Z-statistic (Mantel test) of permutations
+#'              zstat    \tab  the permutation test results of \code{nCVnet}\cr
+#'              npermV   \tab  a vector of Z-statistic (Mantel test) of permutations\cr
 #'              cmatrix  \tab  a matrix of correlation values of paired clock genes using the input data
 #'              }
 #' @examples
@@ -21,6 +21,8 @@
 #' testD = nCVnet(inputD = nCVegD, benchD = mClockD)
 #' testD$zstat
 #' @export
+#' @importFrom ape mantel.test
+#' @importFrom magrittr "%>%"
 
 nCVnet <- function(inputD, benchD, hs = TRUE, nperm = 1000, seedN = 10) {
   ##convert mouse gene symbol to human gene symbol

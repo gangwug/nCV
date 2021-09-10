@@ -22,8 +22,8 @@ If the samples are from mouse, set \code{hs} as \code{FALSE}.}
 \value{
 A list containing the following components:
 \tabular{rl}{
-zstat    \tab  the permutation test results of \code{nCVnet}
-npermV   \tab  a vector of Z-statistic (Mantel test) of permutations
+zstat    \tab  the permutation test results of \code{nCVnet}\cr
+npermV   \tab  a vector of Z-statistic (Mantel test) of permutations\cr
 cmatrix  \tab  a matrix of correlation values of paired clock genes using the input data
 }
 }

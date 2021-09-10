@@ -2,3 +2,5 @@
 
 export(nCVgene)
 export(nCVnet)
+importFrom(ape,mantel.test)
+importFrom(magrittr,"%>%")
