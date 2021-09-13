@@ -28,4 +28,15 @@ The intesntiy values are suggested for array data. For RNA-seq data, we suggest 
 
 ### Requirements of gene expression in the data for nCV calculation
 
+Before applying nCV package, please make sure there is not obvious batch effects (e.g., biopsy or sequenciing center bias) in the population scale data, and remove genes with zero variance (i.e., same expression value for all the samples). Please also make sure that majority clock genes are deteced by the array or RNA-seq. 
+
+### The number of samples in the population scale data
+
+### The list of target clock genes for nCV calculation
+
+### First run nCVnet, then run nCVgene
+
+The nCV only indicate clock robustness if nCVnet returns a significant p-value. 
+
+
 
