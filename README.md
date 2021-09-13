@@ -1,8 +1,7 @@
-# nCV
-Evaluate clock robustness in population scale data
+## Introduction about nCV package
+Robust oscillation of clock genes is a core feature of the circadian system. Relative amplitude (rAMP) measures the robustness of clock gene oscillations, but only works for longitudinal samples. We lack a method for estimating robust oscillations from human samples without labeled time. Therefore, we developed the nCV package for addressing this challenge. 
 
-## Introduction
-This package can test whether there is a functional clock network, and evaluate robustness of clock genes in population scale data.
+The nCV package has two functions: nCVnet and nCVgene. nCVnet can test whether there is a functional clock network in population scale data. nCVgene can evaluate the robustness of clock genes in population scale data. 
 
 ## Installation
 Use **devtools** to install this version from Github:
