@@ -1,5 +1,5 @@
 ## Introduction about nCV package
-Robust oscillation of clock genes is a core feature of the circadian system. Relative amplitude ([rAMP](https://journals.sagepub.com/doi/10.26599/BSA.2020.9050005)) measures the robustness of clock gene oscillations, but only works for longitudinal samples. We lack a method for estimating robust oscillations from human samples without labeled time. Therefore, we developed the [nCV](https://www.biorxiv.org/content/10.1101/2021.07.28.454045v1.full) method to address this challenge, and implement this method into an R package. 
+Robust oscillation of clock genes is a core feature of the circadian system. Relative amplitude ([rAMP](https://journals.sagepub.com/doi/10.26599/BSA.2020.9050005)) measures the robustness of clock gene oscillations, but only works for longitudinal samples. We lack a method for estimating robust oscillations from human samples without labeled time. Therefore, we developed the [nCV](https://www.biorxiv.org/content/10.1101/2021.07.28.454045v1.full) method to address this challenge, and implement it into an R package. 
 
 The nCV package has two functions: nCVnet and nCVgene. nCVnet can test whether there is a functional clock network in population scale data. nCVgene can evaluate the robustness of clock genes in population scale data. 
 
@@ -23,3 +23,9 @@ library(nCV)
 ## Advice for nCV users
 
 ### Transcriptome data format
+
+The intesntiy values are suggested for array data. For RNA-seq data, we suggest to use read-normalized values (e.g., TPM, FPKM or RPKM; TPM is preffered) instead of the raw read counts. 
+
+### Requirements of gene expression in the data for nCV calculation
+
+
