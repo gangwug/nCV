@@ -44,6 +44,8 @@ The 'nCVgene' function can calculate the nCV of all genes in the input dataset. 
 
 ### We suggest to reach the consistent result by testing multiple datasets (e.g., tumor samples from multiple cancer types, or liver tumor samples from different study) if there are available datasets. 
 
-## Reference
+## More information
+
+Wu G, Francey LJ, Ruben MD, Hogenesch JB. Normalized coefficient of variation (nCV): a method to evaluate circadian clock robustness in population scale data. bioRxiv, 2021, doi: https://doi.org/10.1101/2021.07.28.454045.
 
 
