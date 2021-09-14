@@ -36,11 +36,12 @@ The test using mouse liver data suggests 1) the linear relationship between nCV 
 
 ### The list of target clock genes for nCV calculation
 
-The 'nCVgene' function can calculate the nCV of all genes in the input dataset. However, 'nCVgene' will only output the nCV for the targeted output genes set by the parameter of 'cgenes'. 
+The 'nCVgene' function can calculate the nCV of all genes in the input dataset. However, 'nCVgene' will only output the nCV for the targeted output genes set by the parameter of 'cgenes'. The suggested 10 clock genes (ARNTL, CLOCK, NPAS2, NR1D1, CIART, DBP, PER1, CRY2, PER2, and CRY1) vary in molecular clock phase and robustness level. The nCV may also indicate the oscillation robustness of other ubiquious cyclers (e.g., Usp2, Tsc22d3). 
 
 ### First run nCVnet, then run nCVgene
 
 The nCV only indicate clock robustness if nCVnet returns a significant p-value. 
 
+## Reference
 
 
