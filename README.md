@@ -32,7 +32,11 @@ Before applying nCV package, please make sure 1) there is not obvious batch effe
 
 ### The number of samples in the population scale data
 
+The test using mouse liver data suggests 1) the linear relationship between nCV and nrAMP keeps even only containing samples collected in a 12 hour window, 2) the linear correlation value becomes larger if containing samples across the whole circle. Since majority human samples do not have sample collection time, including a large number of samples is the only way of helping guarantee the nCV calculation with samples across the circle. Our current experience suggests that the minimal number of samples suitable for nCV calculation is 50. For human population data analysis, more samples are always preferred. 
+
 ### The list of target clock genes for nCV calculation
+
+The 'nCVgene' function can calculate the nCV of all genes in the input dataset. However, 'nCVgene' will only output the nCV for the targeted output genes set by the parameter of 'cgenes'. 
 
 ### First run nCVnet, then run nCVgene
 
