@@ -24,7 +24,7 @@ library(nCV)
 
 ### Transcriptome data format
 
-The intesntiy values are suggested for array data. For RNA-seq data, we suggest to use read-normalized values (e.g., TPM, FPKM or RPKM; TPM is preffered) instead of the raw read counts. 
+The intesntiy values are suggested for array data. For RNA-seq data, we suggest to use read-normalized values (e.g., TPM, FPKM or RPKM; TPM is preferred) instead of the raw read counts. 
 
 ### Requirements of gene expression in the data for nCV calculation
 
