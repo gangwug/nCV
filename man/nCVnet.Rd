@@ -10,7 +10,7 @@ nCVnet(inputD, benchD, hs = TRUE, nperm = 1000, seedN = 10)
 \item{inputD}{a data frame. The first column is the gene symbol, and other columns are samples.
 One row per gene. Do not accept data frame with duplicate gene symbols.}
 
-\item{benchD}{a data frame. The expression correlation values of paired clock genes. The}
+\item{benchD}{a data frame. The expression correlation values of paired clock genes.}
 
 \item{hs}{a logical value. If the samples are from human, set \code{"hs"} as \code{TRUE}.
 If the samples are from mouse, set \code{hs} as \code{FALSE}.}

@@ -5,7 +5,7 @@
 #'
 #' @param inputD a data frame. The first column is the gene symbol, and other columns are samples.
 #' One row per gene. Do not accept data frame with duplicate gene symbols.
-#' @param benchD a data frame. The expression correlation values of paired clock genes. The
+#' @param benchD a data frame. The expression correlation values of paired clock genes.
 #' @param hs a logical value. If the samples are from human, set \code{"hs"} as \code{TRUE}.
 #' If the samples are from mouse, set \code{hs} as \code{FALSE}.
 #' @param nperm a numeric value. The number of permutations used to calculate the p-value. Default is 1000.
