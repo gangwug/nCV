@@ -42,10 +42,8 @@ The nCV only indicate clock robustness if nCVnet returns a significant p-value.
 
 The 'nCVgene' function can calculate the nCV of all genes in the input dataset. However, 'nCVgene' will only output the nCV for the targeted output genes set by the parameter of 'cgenes'. The suggested 10 clock genes (ARNTL, CLOCK, NPAS2, NR1D1, CIART, DBP, PER1, CRY2, PER2, and CRY1) vary in molecular clock phase and robustness level. The nCV may also indicate the oscillation robustness of other ubiquious cyclers (e.g., Usp2, Tsc22d3). 
 
-### We suggest to reach the consistent result by testing multiple datasets (e.g., tumor samples from multiple cancer types, or liver tumor samples from different study) if there are available datasets. 
+### Considering the relative large individual difference in human samples caused by many factors (e.g., genetic background, age, sex, nutrition, work schedule, environmental influence), we suggest to reach the consistent result by testing multiple datasets (e.g., tumor samples from multiple cancer types, or liver tumor samples from different study), especially for estimating the robustness of a single clock gene. For example, we reach the conclusion that nCV of BMAL1 and PER2 are decreased in tumor samples compared to non-tumor samples based on 8 different datasets. Without testing multiple thyroid carcinoma datasets, we can not confidently say that the robustness of NR1D1 is decreased in tumor samples (possibly true) from patients with thyroid carcinoma yet. 
 
 ## More information
 
 Wu G, Francey LJ, Ruben MD, Hogenesch JB. Normalized coefficient of variation (nCV): a method to evaluate circadian clock robustness in population scale data. bioRxiv, 2021, doi: https://doi.org/10.1101/2021.07.28.454045.
-
-
