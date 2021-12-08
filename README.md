@@ -46,4 +46,4 @@ The 'nCVgene' function can calculate the nCV of all genes in the input dataset. 
 
 ## More information
 
-Wu G, Francey LJ, Ruben MD, Hogenesch JB. Normalized coefficient of variation (nCV): a method to evaluate circadian clock robustness in population scale data. bioRxiv, 2021, doi: https://doi.org/10.1101/2021.07.28.454045.
+Wu G, Francey LJ, Ruben MD, Hogenesch JB. Normalized coefficient of variation (nCV): a method to evaluate circadian clock robustness in population scale data. Bioinformatics, 2021, https://academic.oup.com/bioinformatics/article/37/23/4581/6415819.
