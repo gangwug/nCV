@@ -15,7 +15,7 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Depends: R (>= 3.6.3)
 Imports: 
-        ape (>= 5.4),
+        ape (>= 5.1),
         dplyr,
         tidyr,
         purrr,
