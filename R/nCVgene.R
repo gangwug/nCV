@@ -28,19 +28,19 @@ nCVgene <- function(inputD, cgenes) {
     rownames(inputD) <- inputD$geneSym
     ##get the reformatted data frame
     ncvD <-inputD %>%
-      gather(-geneSym, key = "sampleID", value = "expv") %>%
+      tidyr::gather(-geneSym, key = "sampleID", value = "expv") %>%
       split(.$geneSym) %>%
-      map( function(zD) {
+      purrr::map( function(zD) {
         x <- zD$expv
         xmean <- mean(x)
         xsd <- sd(x)
         xcv <- xsd/xmean
-        return(data.frame( CV = xcv, geneSym = unique(zD$geneSym)) )
-      }) %>% bind_rows() %>%
-      mutate( nCV = CV / mean(CV) ) %>%
+        return(data.frame( CV = xcv, geneSym = unique(zD$geneSym), stringsAsFactors = FALSE) )
+      }) %>% dplyr::bind_rows() %>%
+      dplyr::mutate( nCV = CV / mean(CV) ) %>%
       #dplyr::select(geneSym, CV, nCV) %>%
-      select(geneSym, nCV) %>%
-      filter(geneSym %in% cgenes)
+      dplyr::select(geneSym, nCV) %>%
+      dplyr::filter(geneSym %in% cgenes)
     return(ncvD)
   }  else  {
     cat("Duplicate gene ids are detected. Please merge rows with duplicate gene ids.\n")
