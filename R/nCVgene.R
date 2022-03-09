@@ -35,11 +35,11 @@ nCVgene <- function(inputD, cgenes) {
         xmean <- mean(x)
         xsd <- sd(x)
         xcv <- xsd/xmean
-        return(data.frame( CV = xcv, geneSym = unique(zD$geneSym), stringsAsFactors = FALSE) )
+        return(data.frame( CV = xcv, meanv = xmean, geneSym = unique(zD$geneSym), stringsAsFactors = FALSE) )
       }) %>% dplyr::bind_rows() %>%
       dplyr::mutate( nCV = CV / mean(CV) ) %>%
       #dplyr::select(geneSym, CV, nCV) %>%
-      dplyr::select(geneSym, nCV) %>%
+      dplyr::select(geneSym, nCV, meanv) %>%
       dplyr::filter(geneSym %in% cgenes)
     return(ncvD)
   }  else  {
